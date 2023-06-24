@@ -1,3 +1,6 @@
+using Xunit;
+using Assert = NUnit.Framework.Assert;
+
 namespace CalculatorTest;
 
 public class Tests
@@ -7,9 +10,16 @@ public class Tests
     {
     }
 
-    [Test]
-    public void Test1()
+    [Fact]
+    public void Sum()
     {
-        Assert.Pass();
+        //arrange
+        Calculator calculator = new();
+
+        //act
+        var sum = calculator.Sum(4, 5);
+
+        //assert
+        Assert.AreEqual(9, sum);
     }
 }
