@@ -1,26 +1,22 @@
 using Xunit;
-using Assert = NUnit.Framework.Assert;
 
 namespace CalculatorTest;
 
 public class Tests
 {
-    [SetUp]
-    public void Setup()
-    {
-    }
-
-    [Fact]
-    public void Sum()
+    [Xunit.Theory]
+    [InlineData(2, 2, 4)]
+    [InlineData(2, 3, 5)]
+    public void Sum(int a, int b, int e)
     {
         //arrange
         Calculator calculator = new();
 
         //act
-        var sum = calculator.Sum(4, 5);
+        var sum = calculator.Sum(a, b);
 
         //assert
-        Assert.AreEqual(9, sum);
+        Assert.Equal(e, sum);
     }
 
     [Fact]
@@ -33,6 +29,33 @@ public class Tests
         var result = calculator.Divide(10, 5);
 
         //assert
-        Assert.AreEqual((2, 0), result);
+        Assert.Equal((2, 0), result);
     }
+
+    [Fact]
+    public void TestMulti()
+    {
+        //arrange
+        Calculator calculator = new();
+
+        //act
+        var result = calculator.Multi(10, 5);
+
+        //assert
+        Assert.Equal(50, result);
+    }
+
+    // [Fact]
+    // public void DivideException()
+    // {
+    //     //arrange
+    //     Calculator calculator = new();
+    //
+    //     //act
+    //     //var result = calculator.Divide(10, 0);
+    //
+    //     //assert
+    //     //Assert.Throws<DivideByZeroException>(result);
+    //     Assert.Throws<DivideByZeroException>(() => calculator.Divide(10, 0));
+    // }
 }

@@ -3,7 +3,7 @@
     public int Sum(int first, int second)
     {
         return first + second;
-    }
+    } 
 
     public (int resutl, int remain) Divide(int first, int second)
     {
