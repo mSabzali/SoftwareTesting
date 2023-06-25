@@ -5,8 +5,20 @@
         return first + second;
     }
 
-    public int Divide(int first, int second)
+    public (int resutl, int remain) Divide(int first, int second)
     {
-        return first / second;
+        if (second == 0)
+            throw new DivideByZeroException();
+        return (first / second, first % second);
+    }
+
+    public int Multi(int first, int second)
+    {
+        return first * second;
+    }
+
+    public int Subtract(int first, int second)
+    {
+        return first - second;
     }
 }
